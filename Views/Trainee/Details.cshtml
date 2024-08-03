@@ -1,0 +1,43 @@
+@model TraineeDto
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8 rounded border p-3">
+            <h2 class="text-center mb-5">Trainee Details</h2>
+
+            <div class="row mb-3 justify-content-center">
+                <div class="col-sm-6 text-center">
+                    <img src="~/images/@ViewData["ImageFileName"]" width="150" class="img-fluid">
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label text-end">Id</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["TraineeId"]"/>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label text-end">Address</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["Address"]"/>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label text-end">Grade</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["Grade"]"/>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label text-end">Department</label>
+                <div class="col-sm-8">
+                    <input class="form-control-plaintext" readonly value="@ViewData["DepName"]"/>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

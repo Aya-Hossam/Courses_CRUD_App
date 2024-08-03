@@ -1,0 +1,42 @@
+@model List<crsResult>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2 class="text-center mb-5">Course Results</h2>
+
+<div class="row mb-5">
+    <div class="col">
+        <a class="btn btn-primary" asp-controller="crsResult" asp-action="Create">Add New Result</a>
+    </div>
+    <div class="col">
+
+    </div>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Result Degree</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach(var res in Model)
+        {
+            <tr>
+                <td>@res.ResDegree</td>
+                <td style="white-space:nowrap">
+                    <a class="btn btn-primary btn-sm" asp-controller="crsResult" asp-action="Edit"
+                        asp-route-id="@res.ResId">Edit</a>
+                    <a class="btn btn-primary btn-sm" asp-controller="crsResult" asp-action="Details"
+                        asp-route-id="@res.ResId">Details</a>
+                    <a class="btn btn-danger btn-sm" asp-controller="crsResult" asp-action="Delete"
+                        asp-route-id="@res.ResId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

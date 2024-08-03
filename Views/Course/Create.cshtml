@@ -1,0 +1,51 @@
+@model Course
+
+@{
+    var departments = ViewBag.Dep as IEnumerable<Department> ?? new List<Department>();
+    var deptOptions = new SelectList(departments, "DepId", "DepName");
+}
+
+<div class="row">
+    <div class="col-md-8 mx-auto rounded border p-3">
+        <h2 class="text-center mb-5">New Course</h2>
+
+        <form method="post">
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Course Name</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="CourseName" />
+                    <span asp-validation-for="CourseName" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Minimum Degree</label>
+                <div class="col-sm-8">
+                    <input class="form-control" asp-for="minDegree" />
+                    <span asp-validation-for="minDegree" class="text-danger"></span>
+                </div>
+            </div>
+
+            <div class="row mb-3">
+                <label class="col-sm-4 col-form-label">Department</label>
+                <div class="col-sm-8">
+                    <select class="form-select" asp-for="DepId" asp-items="deptOptions" required></select>
+                    <span asp-validation-for="DepId" class="text-danger"></span>
+                </div>
+            </div>
+
+           
+            <div class="row">
+                <div class="offset-sm-4 col-sm-4 d-grid">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                </div>
+                <div class="col-sm-4 d-grid">
+                    <a class="btn btn-outline-primary" asp-controller="Course" asp-action="Index" role="button">
+                        Cancel
+                    </a>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
